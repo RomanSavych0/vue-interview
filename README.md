@@ -1,7 +1,10 @@
- Add your private API key to src/api/currencyApi in API_KEY variable 
- Install all the required npm packages:
+ Add your private API key to src/api/currencyApi in API_KEY variable  
+ 
+ Install all the required npm packages:  
+
  `npm install`
- Start the local dev server with hot reload:
+ Start the local dev server with hot reload:  
+
  `npm run dev`
  
 
