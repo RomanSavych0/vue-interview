@@ -2,7 +2,8 @@
  
  Install all the required npm packages:  
 
- `npm install`
+ `npm install`  
+
  Start the local dev server with hot reload:  
 
  `npm run dev`
