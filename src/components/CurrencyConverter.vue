@@ -1,6 +1,8 @@
 <script setup>
 import { useCurrencyConverter } from '@/hooks/useCurrencyConverter'
-
+import {useStore} from "vuex";
+import {computed} from "vue";
+const store = useStore()
 const {
   currencies,
   fromCurrency,
@@ -8,8 +10,16 @@ const {
   amount,
   result,
   error
-} = useCurrencyConverter()
+} = useCurrencyConverter(store)
+
+const hist = computed(()=>store.getters.history
+
+);
+console.log('hist' , hist)
+
+
 </script>
+
 
 <template>
   <div class="currency-center-wrapper">
@@ -39,6 +49,12 @@ const {
         <el-alert v-if="error" :title="error" type="error" show-icon style="margin-top: 16px" />
       </el-card>
     </transition>
+  </div>
+  <div class="history-wrapper">
+    <div v-for="histItem in hist" class="hist-item">
+      {{histItem.from}} - {{histItem.to}} - {{histItem.value}}
+    </div>
+
   </div>
 </template>
 
@@ -113,5 +129,16 @@ const {
 .fade-result-enter-to, .fade-result-leave-from {
   opacity: 1;
   transform: translateY(0);
+}
+.hist-item{
+  padding: 10px;
+  cursor: pointer;
+  border:1px solid red;
+}
+.history-wrapper{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+
 }
 </style>

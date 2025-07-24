@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY = ''
+const API_KEY = 'PLjHbz6wjh7NN0E3ThHIRF0jMWoR7Cok'
 
 export async function fetchCurrencies() {
   const { data } = await axios.get('https://api.currencybeacon.com/v1/currencies', {
